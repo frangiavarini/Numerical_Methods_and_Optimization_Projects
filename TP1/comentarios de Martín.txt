@@ -1,0 +1,29 @@
+latex formula generator -> te facilita el código
+
+Interpolar fa(x) con lagrange, haciendo un for iterando por puntos:
+(es lo mismo que usar interpld())
+from scipy.interpolate import Lagrangre también
+teórica dice: fa = lagrange (x, y)
+pero hay que justificar por qué y cómo
+scypy.interpolate.lagrange también me deja obtener los intervalos de error, las bases, revisar documentación, se puede usar para el informe
+
+Gráficos ideas
+Graficar la interpolación de fa(x) con matplotlib contra fa(x)
+se pueden también graficar las bases de lagrange
+además graficar el error en función del dominio (función del error sería, en los puntos evaluados debe ser 0)
+graficar el error en función de n también es idea
+histograma para el error -> plt.hist(array)
+
+Mediana -> np.median(array)
+boxplot -> plt.boxplot(array), te da una idea de la distribución. te da el que tiene un cuarto arriba y un cuarto abajo
+
+el error se puede calcular restando mi ground truth a la interpolación o también acotándola empíricamente en a y b porque conozco la función
+si no tenés el ground truth, al error lo podés calcular tomando un subconjunto de los puntos que tenés, interpolo, y mido el error contra los restantes
+puedo agarrar 2 puntos al azar con numpy.uniform y repito muchas veces el proceso y calculo el error contra lo otro.
+puedo agarrar primero 2, después 3, después 4, y calculo el error todas las veces.
+puedo agarrar 1 punto sí y uno no. puedo explicitar los errorees en cadaa punto
+se puede sacar el mínimo y el máximo, y la mediana (los ordenas de mayor a menor y elegis el del medio) MEDIANA MEJOR QUE PROMEDIO, NO SE USA PROMEDIO -> para tener idea de la densidad
+
+también se puede hacer una tabla de error absoluto para splines y lagrange ponele
+otra opción es calcular las derivadas 1, 2, 3 hasta 4. La Derivada se debe explicitar, pero también hay librerías, las podés calcular con librerías pero hay que ponerlas. la derivada debe estar calculada, debo poder ver cuál es (la puedo dejar en el apéndice si es muy larga)
+
